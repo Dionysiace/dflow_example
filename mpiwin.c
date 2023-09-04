@@ -32,8 +32,8 @@ int main(void)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &nproc);
 
-    MPI_Win win;
-    MPI_Aint size;
+    //MPI_Win win;
+    //MPI_Aint size;
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -46,7 +46,7 @@ int main(void)
         writeFile(0, strcat(path,"result.csv"));
     }
 
-    MPI_Win_free(&win);
-    MPI_Finalize();
+    //MPI_Win_free(&win);
+    //MPI_Finalize();
     return 0;
 }
