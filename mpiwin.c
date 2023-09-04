@@ -47,6 +47,6 @@ int main(void)
     }
 
     //MPI_Win_free(&win);
-    //MPI_Finalize();
+    MPI_Finalize();
     return 0;
 }
