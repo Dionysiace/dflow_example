@@ -93,8 +93,8 @@ int main(void)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &nproc);
 
-    MPI_Win win;
-    MPI_Aint size;
+    //MPI_Win win;
+    //MPI_Aint size;
 
     float* readInput=(float*)malloc(sizeof(float)*1);
     readFile("/tmp/mpiwin/input.txt",readInput);
@@ -112,7 +112,7 @@ int main(void)
     }
 
     free(readInput);
-    MPI_Win_free(&win);
+    //MPI_Win_free(&win);
     MPI_Finalize();
     return 0;
 }
