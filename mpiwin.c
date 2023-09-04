@@ -43,7 +43,7 @@ int main(void)
     if (rank == 0)
     {
         char path[30]="/tmp/mpiwin/";
-        writeFile(0, strcat(path,result.csv"));
+        writeFile(0, strcat(path,"result.csv"));
     }
 
     MPI_Win_free(&win);
