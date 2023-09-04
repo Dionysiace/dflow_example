@@ -4,7 +4,7 @@
 using namespace std;
 #define _CRT_SECURE_NO_WARNINGS
 
-void writeFile(double* pp, int x_grid, int y_grid, const char* fileName) {
+void writeFile(int data, int x_grid, int y_grid, const char* fileName) {
     FILE* fp;//文件指针
 
     /*文件的打开*/
@@ -16,14 +16,9 @@ void writeFile(double* pp, int x_grid, int y_grid, const char* fileName) {
     }
 
     //写入东西
-    for (int i = 0; i <= y_grid - 1; i++)
-    {
-        for (int j = 0; j <= x_grid - 1; j++) {
-            fprintf(fp, "%f,", *(pp + i * x_grid + j));//!!!!!尤其注意这里要用逗号隔开，因为excel表里面就默认识别逗号隔开的才能分类fprintf（文件指针，格式字符串，列表）
-
-        }
-        fprintf(fp, "\t\n");
-    } //关闭文件 
+    fprintf(fp, "%d,", data*2);//!!!!!尤其注意这里要用逗号隔开，因为excel表里面就默认识别逗号隔开的才能分类fprintf（文件指针，格式字符串，列表）
+    
+    //关闭文件 
     fclose(fp);
     printf("Write file finish\n");
     fflush(stdout);
@@ -41,7 +36,7 @@ void readFile(const char* fileName, float* readInput) {
     }
 
     //写入东西
-    for (int i = 0; i < 11; i++)
+    for (int i = 0; i < 1; i++)
     {
         int ret = fscanf(fp, "%f", (readInput+i));
     } //关闭文件 
@@ -113,7 +108,7 @@ int main(void)
     {
         char buf[10]="",path[30]="/tmp/mpiwin/";
         int len = my_itoa((int)*(readInput), buf);
-        writeFile(pp, x_grid, y_grid, strcat(path,strcat(buf, "_result.csv")));
+        writeFile((int)*(readInput), strcat(path,strcat(buf, "_result.csv")));
     }
 
     free(readInput);
