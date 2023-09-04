@@ -4,7 +4,7 @@
 using namespace std;
 #define _CRT_SECURE_NO_WARNINGS
 
-void writeFile(int data, int x_grid, int y_grid, const char* fileName) {
+void writeFile(int data, const char* fileName) {
     FILE* fp;//文件指针
 
     /*文件的打开*/
